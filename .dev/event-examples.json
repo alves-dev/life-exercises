@@ -1,0 +1,22 @@
+[
+  {
+    "type": "EXERCISE",
+    "personId": "f81ac9d8-f365-4254-a374-6ad2bb337e16",
+    "datetime": "2024-01-23T14:45Z",
+    "typeExercise": "RACE",
+    "detail": {
+      "origin": "Strava",
+      "externalId": "2561523"
+    }
+  },
+  {
+    "type": "EXERCISE",
+    "personId": "f81ac9d8-f365-4254-a374-6ad2bb337e16",
+    "datetime": "2024-01-25T01:28-03:00",
+    "typeExercise": "CYCLING",
+    "detail": {
+      "origin": "Strava",
+      "externalId": "7482935"
+    }
+  }
+]
