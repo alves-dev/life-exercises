@@ -1,0 +1,10 @@
+/src/main/resources/application-dev.yml
+
+.gradle
+build/
+
+### IntelliJ IDEA ###
+.idea
+
+### VS Code ###
+.vscode/
