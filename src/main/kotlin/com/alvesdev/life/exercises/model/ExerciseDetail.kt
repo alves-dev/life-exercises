@@ -42,6 +42,6 @@ class ExerciseDetail(
         exercise = exe,
         createdAt = ZonedDateTime.now(),
         origin = origin,
-        externalId = "ttt"
+        externalId = ""
     )
 }
