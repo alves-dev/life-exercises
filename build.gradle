@@ -7,8 +7,11 @@ plugins {
 	id 'org.jetbrains.kotlin.plugin.spring' version '1.9.22'
 }
 
-group = 'com.alves-dev.life'
-version = '0.0.1-SNAPSHOT'
+base {
+	group = 'com.alves-dev.life'
+	archivesName = 'application'
+	description = "life-exercises"
+}
 
 java {
 	sourceCompatibility = '21'
