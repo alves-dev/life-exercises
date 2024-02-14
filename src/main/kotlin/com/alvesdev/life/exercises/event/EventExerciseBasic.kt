@@ -1,21 +1,26 @@
 package com.alvesdev.life.exercises.event
 
-import java.time.ZonedDateTime
+import com.fasterxml.jackson.annotation.JsonAlias
 
 class EventExerciseBasic() : EventBase() {
-    lateinit var datetime: ZonedDateTime
+    @JsonAlias("type_exercise")
     lateinit var typeExercise: String
+
+    var minutes: Double = 0.0
+
     lateinit var detail: Detail
 
     override fun toString(): String {
         return "EventExerciseBasic(type=$type, personId='$personId', datetime='$datetime', " +
-                "typeExercise=$typeExercise, detail=$detail)"
+                "typeExercise=$typeExercise, minutes=$minutes, detail=$detail)"
     }
 }
 
 class Detail() {
     lateinit var origin: String
-    var externalId: String = ""
+
+    @JsonAlias("external_id")
+    var externalId: String? = null
 
     override fun toString(): String {
         return "(origin='$origin', externalId='$externalId')"

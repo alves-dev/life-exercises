@@ -2,6 +2,7 @@ package com.alvesdev.life.exercises.infrastructure.listener
 
 import com.alvesdev.life.exercises.event.EventBase
 import com.alvesdev.life.exercises.event.EventType
+import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.json.JsonMapper
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -13,13 +14,14 @@ import org.springframework.stereotype.Service
 @Service
 class RabbitMqListener {
 
+    private val log: Logger = LoggerFactory.getLogger(RabbitMqListener::class.java)
+
     @Autowired
     private lateinit var eventPublisher: ApplicationEventPublisher
 
-    private val log: Logger = LoggerFactory.getLogger(RabbitMqListener::class.java)
-
-
-    private val jsonMapper: JsonMapper = JsonMapper.builder().findAndAddModules().build()
+    private val jsonMapper: JsonMapper = JsonMapper.builder().findAndAddModules()
+        .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+        .build()
 
     @RabbitListener(queues = ["\${application.rabbit.queues.events}"])
     fun handleEvent(message: String?) {
