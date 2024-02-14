@@ -2,6 +2,13 @@ spring:
   profiles:
     active: dev
 
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: false
+        show_sql: false
+
   datasource:
     username: root
     password: root
