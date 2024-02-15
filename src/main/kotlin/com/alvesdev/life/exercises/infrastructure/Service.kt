@@ -44,7 +44,7 @@ class Service {
     @Async
     @EventListener
     fun processEventExerciseAcademy(event: EventExerciseAcademy) {
-        if (event.local != "ACADEMY" || event.action != "REMAINED") return
+        if (!event.local.equals("ACADEMY", ignoreCase = true) || event.action != "REMAINED") return
         try {
             val exercise = exerciseRepository.save(
                 Exercise(

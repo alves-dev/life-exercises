@@ -23,7 +23,7 @@ class RabbitMqListener {
         .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
         .build()
 
-    @RabbitListener(queues = ["\${application.rabbit.queues.events}"])
+    @RabbitListener(queues = ["\${application.rabbit.queues.exercises}", "\${application.rabbit.queues.tracking}"])
     fun handleEvent(message: String?) {
         try {
             val node = jsonMapper.readTree(message)

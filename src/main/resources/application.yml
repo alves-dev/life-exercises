@@ -25,4 +25,5 @@ spring:
 application:
   rabbit:
     queues:
-      events: exercises
+      exercises: exercises
+      tracking: person_tracking
