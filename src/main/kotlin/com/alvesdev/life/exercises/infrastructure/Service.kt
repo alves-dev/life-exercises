@@ -72,7 +72,12 @@ class Service {
     @Async
     @EventListener
     fun processEventBase(event: EventBase) {
+        //TODO: log e nao print
         println(event)
+    }
+
+    fun getAll(): List<Exercise> {
+        return exerciseRepository.findAll()
     }
 }
 
