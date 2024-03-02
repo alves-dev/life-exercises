@@ -26,6 +26,10 @@ class Service {
     @Autowired
     private lateinit var exerciseDetailRepository: ExerciseDetailRepository
 
+    private final val local = "ACADEMY"
+    private final val action = "REMAINED"
+    private final val minutes = 20
+
     @Async
     @EventListener
     fun processEventExerciseBasic(event: EventExerciseBasic) {
@@ -44,11 +48,14 @@ class Service {
     @Async
     @EventListener
     fun processEventExerciseAcademy(event: EventExerciseAcademy) {
-        //TODO: tirar isso daqui
-        if (!event.local.equals("ACADEMY", ignoreCase = true)
-            || event.action != "REMAINED"
-            || event.minutes < 20
-        ) return
+        if (!event.local.equals(this.local, ignoreCase = true)
+            || event.action != this.action
+            || event.minutes < this.minutes
+        ) {
+            log.warn("Event not processed: $event")
+            return
+        }
+
         try {
             val exercise = exerciseRepository.save(
                 Exercise(
@@ -64,6 +71,7 @@ class Service {
                     event.origin
                 )
             )
+            log.info("Saved: $exercise")
         } catch (e: Exception) {
             log.error(e.message)
         }
@@ -72,8 +80,7 @@ class Service {
     @Async
     @EventListener
     fun processEventBase(event: EventBase) {
-        //TODO: log e nao print
-        println(event)
+        log.info(event.toString())
     }
 
     fun getAll(): List<Exercise> {

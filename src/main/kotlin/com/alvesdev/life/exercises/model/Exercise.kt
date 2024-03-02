@@ -46,4 +46,8 @@ class Exercise(
         type = "",
         minutes = 0.0
     )
+
+    override fun toString(): String {
+        return "Exercise(personId=$personId, datetime=$datetime, type='$type', minutes=$minutes)"
+    }
 }
