@@ -3,6 +3,11 @@
 O projeto consiste em ouvir [eventos](https://github.com/alves-dev/life/tree/main/events#person_tracking-routing_key---person_tracking) 
 de uma fila tratar o mesmo e salvar no banco de dados.
 
+### Eventos
+`type = PERSON_TRACKING` trata-se de um evento indicando que uma pessoa [entrou, saiu ou permaneceu] em algum lugar por um `X` tempo.
+
+No caso se, `action = REMAINED` e `local = ACADEMY` eu salvo no banco de dados indicando que a pessoa foi a cadamia.
+
 ### Tecnologias Utilizadas
 __[Spring Boot](https://spring.io/projects/spring-boot):__ Poderoso framework Java para criar aplicativos robustos e eficientes.
 

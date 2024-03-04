@@ -23,7 +23,7 @@ spring:
       enabled: false
 
 application:
-  academy.minimum.minutes: 20
+  academy.minimum.minutes: 20 # Defini o tempo minimo aceitavel para registrar o evento do tipo ACADEMY
   rabbit:
     queues:
       exercises: exercises
