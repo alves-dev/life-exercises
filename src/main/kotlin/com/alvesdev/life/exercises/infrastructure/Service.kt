@@ -10,6 +10,7 @@ import com.alvesdev.life.exercises.model.ExerciseDetail
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.event.EventListener
 import org.springframework.scheduling.annotation.Async
 import org.springframework.stereotype.Service
@@ -28,7 +29,9 @@ class Service {
 
     private final val local = "ACADEMY"
     private final val action = "REMAINED"
-    private final val minutes = 20
+
+    @Value("\${application.academy.minimum.minutes}")
+    private var minutes: Int = 0
 
     @Async
     @EventListener

@@ -23,6 +23,7 @@ spring:
       enabled: false
 
 application:
+  academy.minimum.minutes: 20
   rabbit:
     queues:
       exercises: exercises
