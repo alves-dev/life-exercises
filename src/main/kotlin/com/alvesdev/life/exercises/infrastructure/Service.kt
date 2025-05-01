@@ -51,7 +51,7 @@ class Service {
     @Async
     @EventListener
     fun processEventExerciseAcademy(event: EventExerciseAcademy) {
-        if (!event.local.equals(this.local, ignoreCase = true)
+        if (!event.local.contains(this.local, ignoreCase = true)
             || event.action != this.action
             || event.minutes < this.minutes
         ) {
